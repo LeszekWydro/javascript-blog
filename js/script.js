@@ -57,7 +57,7 @@ function generateTitleLinks() {
     /* [DONE] remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
-    console.log(titleList);
+    // console.log(titleList);
 
     const articles = document.querySelectorAll(optArticleSelector);
     let html = '';
@@ -72,7 +72,7 @@ function generateTitleLinks() {
 
         /* [DONE] create HTML of the link */
         const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-        console.log(linkHTML);
+        // console.log(linkHTML);
 
         /*  [DONE] insert link into titleList */
         html = html + linkHTML;
@@ -89,14 +89,21 @@ generateTitleLinks();
 
 function generateTags() {
     /* find all articles */
+    const articles = document.querySelectorAll(optArticleTagsSelector);
 
     /* START LOOP: for every article: */
-
     /* find tags wrapper */
+    for (let article of articles) {
 
-    /* make html variable with empty string */
+        /* make html variable with empty string */
+        const articleTagList = article.querySelector(optArticleTagsSelector);
+        let html = '';
+        console.log(articleTagList);
 
-    /* get tags from data-tags attribute */
+        /* get tags from data-tags attribute */
+        const articleTags = article.getAttribute('data-tags');
+        console.log('articleTags', articleTags);
+    }
 
     /* split tags into array */
 
@@ -112,5 +119,4 @@ function generateTags() {
 
     /* END LOOP: for every article: */
 }
-
 generateTags();
