@@ -72,7 +72,7 @@ function generateTitleLinks() {
     /*  [DONE] insert link into titleList */
     html = html + linkHTML;
   }
-  /* insert link into html variabl}e */
+  /* insert link into html variable */
   titleList.innerHTML = html;
 
   const links = document.querySelectorAll('.titles a');
