@@ -99,7 +99,7 @@ function generateTags() {
     // console.log('articleTags', articleTags);
     
     /* split tags into array */
-    const articleTagsArray = articleTags.split(' ');
+    const articleTagsArray = articleTags.split();
     // console.log(articleTagsArray);
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
@@ -132,7 +132,7 @@ function tagClickHandler(event){
   const href = clickedElement.getAttribute('href');
   
   /* make a new constant "tag" and extract tag from the "href" constant */
-  const tag = href.replace('#tag-', '');
+  const tag = href.replace('#tag-', '' );
   /* find all tag links with class active */
   const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
   /* START LOOP: for each active tag link */
@@ -142,7 +142,7 @@ function tagClickHandler(event){
   /* END LOOP: for each active tag link */
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
-  const equalTags = document.querySelectorAll('a[href="' + href + '"]' == href);
+  const equalTags = document.querySelectorAll('a[href="' + href + '"]');
   /* START LOOP: for each found tag link */
   for (let equalTag of equalTags) {
   /* add class active */
