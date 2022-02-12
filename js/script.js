@@ -99,7 +99,7 @@ function generateTags() {
     // console.log('articleTags', articleTags);
     
     /* split tags into array */
-    const articleTagsArray = articleTags.split();
+    const articleTagsArray = articleTags.split(' ');
     // console.log(articleTagsArray);
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
