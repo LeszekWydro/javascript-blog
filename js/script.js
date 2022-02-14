@@ -177,23 +177,52 @@ function generateAuthors(){
     
     let html = '';
 
-    const authorTags = article.getAttribute('data-author');
+    const authorHrefTags = article.getAttribute('data-author');
 
-    const authorLinkHTML = '<li><a href="#author-' + authorTags + '"><span>' + authorTags + '</span></a></li>';
+    const authorLinkHTML = '<li><a href="#author-' + authorHrefTags + '"><span>' + authorHrefTags + '</span></a></li>';
 
     html = html + authorLinkHTML;
     
     authorName.innerHTML = html;
   }
-}   
+}
 generateAuthors();
 
+function authorClickHandler(event){
+
+  event.preventDefault(); 
+ 
+  const clickedElement = this;
+ 
+  const href = clickedElement.getAttribute('href');
+  
+  const authorHrefTags = href.replace('#author-', '' );
+
+  const authorTagLinks = document.querySelectorAll('a.active[href^="#author-"]');
+  console.log(authorTagLinks);
+ 
+  for (let authorTagLink of authorTagLinks) {
+
+    authorTagLink.classList.remove('active');
+  }
+  const authorLinks = document.querySelectorAll('a[href="' + href + '"]');
+  
+  for (let authorLink of authorLinks) {
+  
+    authorLink.classList.add('active');
+  }
+  generateTitleLinks('[data-author="' + authorHrefTags + '"]');
+
+}
 
 
-
-
-
-
-
-
-
+function addClickListenersToAuthors(){
+  
+  const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+ 
+  for (let authorLink of authorLinks) {
+ 
+    authorLink.addEventListener('click', authorClickHandler); 
+  }
+}
+addClickListenersToAuthors();
