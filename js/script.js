@@ -89,22 +89,22 @@ generateTitleLinks();
 
 function calculateTagsParams(tags){
   const params = {
-    min: 0,
-    max: 999999
+    min: 9999,
+    max: 0
   };
 
   for(let tag in tags){
-    console.log(tag + ' is used ' + tags[tag] + ' times');
+    console.log(tag + ' is used ' + tags[tag] + ' times ');
 
-    if(tags[tag] > params.min) {
-      params.min = tags[tag];
-    }
     if(tags[tag] > params.max){
       params.max = tags[tag];
     }
-    
+    else if(tags[tag] < params.min){
+      params.min = tags[tag];
+    }
   }
   return params;
+  
 }
 
 function calculateTagClass(count, params){
